@@ -16,7 +16,7 @@
 
 ### 🏠 [Guia](/)
 
-* **Aula #00 - Conceitos básicos e VPC** - [Exemplos](/https://github.com/msfidelis/terraformando-eks/releases/tag/aula00) - [Video](https://www.youtube.com/watch?v=-ghbb9PyGxY)
+* **Aula #00 - Conceitos básicos e VPC** - [Exemplos](/https://github.com/msfidelis/terraformando-eks/releases/tag/aula00_vpc) - [Video](https://www.youtube.com/watch?v=-ghbb9PyGxY)
 
 ### ✨ [Demo](/)
 
