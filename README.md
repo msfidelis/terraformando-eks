@@ -16,7 +16,7 @@
 
 ### 🏠 [Guia](/)
 
-* [ Terraformando o EKS #00 ] : Conceitos básicos e VPC - [Exemplos](/) - [Video](https://www.youtube.com/watch?v=-ghbb9PyGxY)
+* **Conceitos básicos e VPC** - [Exemplos](/https://github.com/msfidelis/terraformando-eks/releases/tag/aula00) - [Video](https://www.youtube.com/watch?v=-ghbb9PyGxY)
 
 ### ✨ [Demo](/)
 
