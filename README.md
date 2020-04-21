@@ -18,6 +18,8 @@
 
 * **Aula #00 - Conceitos básicos e VPC** - [Exemplos](https://github.com/msfidelis/terraformando-eks/tree/aula00_vpc) - [Video](https://www.youtube.com/watch?v=-ghbb9PyGxY)
 
+* **Aula #01 - Terraformando o EKS Cluster** - [Exemplos](https://github.com/msfidelis/terraformando-eks/tree/aula01_eks) - [Video](https://www.youtube.com/watch?v=-ghbb9PyGxY)
+
 ### ✨ [Demo](/)
 
 ## Install
