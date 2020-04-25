@@ -5,7 +5,8 @@ resource "aws_subnet" "private_subnet_1a" {
     availability_zone = format("%sa", var.aws_region)
 
     tags = {
-        Name = format("%s-private-1a", var.cluster_name)
+        Name = format("%s-private-1a", var.cluster_name),
+        "kubernetes.io/cluster/${var.cluster_name}" = "shared"
     }
 }
 
@@ -16,7 +17,8 @@ resource "aws_subnet" "private_subnet_1c" {
     availability_zone = format("%sc", var.aws_region)
 
     tags = {
-        Name = format("%s-private-1c", var.cluster_name)
+        Name = format("%s-private-1c", var.cluster_name),
+        "kubernetes.io/cluster/${var.cluster_name}" = "shared"
     }
 }
 
