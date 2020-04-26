@@ -42,6 +42,16 @@ terraform apply --auto-approve
 terraform validate
 ```
 
+## Deploy demo services 
+
+* [Whois App]()
+* [Faker App]()
+* [Pudim]()
+
+```bash
+
+```
+
 ## Author
 
 👤 **Matheus Fidelis**
