@@ -1,0 +1,59 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: whois
+  labels:
+    k8s-app: whois
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      k8s-app: whois
+  template:
+    metadata:
+      labels:
+        k8s-app: whois
+        name: whois
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - image: msfidelis/whois:v1
+        name: whois
+        ports:
+        - name: http
+          containerPort: 8080
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512m"
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: whois
+spec:
+  selector:
+    k8s-app: whois
+  ports:
+    - protocol: TCP
+      port: 8080
+      name: web
+  type: ClusterIP
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: whois
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /whois
+        backend:
+          serviceName: whois
+          servicePort: 8080

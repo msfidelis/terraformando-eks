@@ -22,34 +22,49 @@
 
 * **Aula #02 - Node groups** - [Exemplos](https://github.com/msfidelis/terraformando-eks/tree/aula02_nodes) - [Video](https://www.youtube.com/watch?v=kXqiqZ5Nap8)
 
+* **Aula #03 - Traefik no EKS** - [Exemplos](https://github.com/msfidelis/terraformando-eks/tree/aula03_traefik) - [Video](https://www.youtube.com/watch?v=kXqiqZ5Nap8)
+
 ### ✨ [Demo](/)
 
-## Install
+## Instalação
 
 ```sh
 terraform init
 ```
 
-## Usage
+## Aplicando
 
 ```sh
 terraform apply --auto-approve
 ```
 
-## Run tests
+## Validação
 
 ```sh
 terraform validate
 ```
 
-## Deploy demo services 
+## Adicionando o contexto do nosso cluster ao kubectl
+
+```bash
+aws eks --region us-east-1 update-kubeconfig --name nome-do-cluster
+aws eks --region us-east-1 update-kubeconfig --name k8s-demo
+```
+
+```bash
+kubectl get nodes
+```
+
+## Deploy demo services
 
 * [Whois App]()
 * [Faker App]()
 * [Pudim]()
 
 ```bash
-
+kubectl apply -f kubernetes/applications/whois.yml
+kubectl apply -f kubernetes/applications/faker.yml
+kubectl apply -f kubernetes/applications/pudim.yml
 ```
 
 ## Author

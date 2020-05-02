@@ -1,0 +1,58 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: faker
+  labels:
+    k8s-app: faker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      k8s-app: faker
+  template:
+    metadata:
+      labels:
+        k8s-app: faker
+        name: faker
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - image: msfidelis/faker:v1
+        name: faker
+        ports:
+        - name: http
+          containerPort: 5000
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512m"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: faker
+spec:
+  selector:
+    k8s-app: faker
+  ports:
+    - protocol: TCP
+      port: 5000
+      name: web
+  type: ClusterIP
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: faker
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /faker
+        backend:
+          serviceName: faker
+          servicePort: 5000
