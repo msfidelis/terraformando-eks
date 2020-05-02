@@ -22,7 +22,7 @@
 
 * **Aula #02 - Node groups** - [Exemplos](https://github.com/msfidelis/terraformando-eks/tree/aula02_nodes) - [Video](https://www.youtube.com/watch?v=kXqiqZ5Nap8)
 
-* **Aula #03 - Traefik no EKS** - [Exemplos](https://github.com/msfidelis/terraformando-eks/tree/aula03_traefik) - [Video](https://www.youtube.com/watch?v=kXqiqZ5Nap8)
+* **Aula #03 - Traefik no EKS** - [Exemplos](https://github.com/msfidelis/terraformando-eks/tree/aula03_traefik) - [Video](https://www.youtube.com/watch?v=ThONqZT2Mfs&t=9s)
 
 ### ✨ [Demo](/)
 
@@ -55,16 +55,22 @@ aws eks --region us-east-1 update-kubeconfig --name k8s-demo
 kubectl get nodes
 ```
 
-## Deploy demo services
-
-* [Whois App]()
-* [Faker App]()
-* [Pudim]()
+## Deploy o Ingress
 
 ```bash
-kubectl apply -f kubernetes/applications/whois.yml
-kubectl apply -f kubernetes/applications/faker.yml
-kubectl apply -f kubernetes/applications/pudim.yml
+kubectl apply -f kubernetes/traefik/ingress.yml
+```
+
+## Deploy demo services
+
+* [Whois App](https://github.com/msfidelis/microservice-nadave-whois)
+* [Faker App](https://github.com/msfidelis/microservice-nadave-fake-person)
+* [Pudim](https://github.com/msfidelis/pudim)
+
+```bash
+kubectl apply -f kubernetes/apps/whois.yml
+kubectl apply -f kubernetes/apps/faker.yml
+kubectl apply -f kubernetes/apps/pudim.yml
 ```
 
 ## Author
