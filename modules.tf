@@ -33,4 +33,6 @@ module "nodes" {
 
   nodes_instances_sizes   = var.nodes_instances_sizes
   auto_scale_options      = var.auto_scale_options
+
+  auto_scale_cpu     = var.auto_scale_cpu
 }

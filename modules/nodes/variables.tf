@@ -18,6 +18,7 @@ variable "nodes_instances_sizes" {}
 
 variable "auto_scale_options" {}
 
+variable "auto_scale_cpu" {}
 
 
 
