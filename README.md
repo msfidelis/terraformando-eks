@@ -24,6 +24,8 @@
 
 * **Aula #03 - Traefik no EKS** - [Exemplos](https://github.com/msfidelis/terraformando-eks/tree/aula03_traefik) - [Video](https://www.youtube.com/watch?v=ThONqZT2Mfs&t=9s)
 
+* **Aula #04 - Auto Scale do Cluster** - [Exemplos](https://github.com/msfidelis/terraformando-eks/tree/aula04_scale) - [Video](https://www.youtube.com/watch?v=tYikrqYRAaQ)
+
 ### ✨ [Demo](/)
 
 ## Instalação
@@ -71,6 +73,12 @@ kubectl apply -f kubernetes/traefik/ingress.yml
 kubectl apply -f kubernetes/apps/whois.yml
 kubectl apply -f kubernetes/apps/faker.yml
 kubectl apply -f kubernetes/apps/pudim.yml
+```
+
+## Deploy do Metric Server
+
+```bash
+kubectl apply -f kubernetes/metric-server/metric-server.yml
 ```
 
 ## Author
