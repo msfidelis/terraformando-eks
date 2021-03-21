@@ -1,8 +1,14 @@
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: whois
+---
 kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: whois
+  namespace: whois
   labels:
     k8s-app: whois
 spec:
@@ -27,12 +33,12 @@ spec:
           requests:
             cpu: "256m"
             memory: "512m"
-
 ---
 kind: Service
 apiVersion: v1
 metadata:
   name: whois
+  namespace: whois
 spec:
   selector:
     k8s-app: whois
@@ -43,26 +49,29 @@ spec:
   type: ClusterIP
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: whois
-  annotations:
-    kubernetes.io/ingress.class: traefik
+  namespace: whois
 spec:
+  ingressClassName: "traefik-lb"
   rules:
   - http:
       paths:
-      - path: /whois
+      - path: "/whois"
+        pathType: Prefix
         backend:
-          serviceName: whois
-          servicePort: 8080
-
+          service: 
+            name: whois
+            port:
+              number: 8080
 ---
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: whois
+  namespace: whois
 spec:
   maxReplicas: 5
   minReplicas: 3
